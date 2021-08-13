@@ -1,0 +1,27 @@
+.section {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1rem;
+  text-align: center;
+}
+
+.section div {
+  position: relative;
+}
+
+.h1 {
+  font-size: 16rem;
+  line-height: 0.75;
+  margin-bottom: 16px;
+}
+
+.h1::after {
+  content: 'bruh moment...';
+  font-size: 1rem;
+}
+
+.sorry {
+  font-size: 2rem;
+}
