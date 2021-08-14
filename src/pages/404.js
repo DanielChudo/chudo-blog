@@ -1,5 +1,5 @@
 import React from 'react';
-import * as style from '../styles/404.module.css';
+import * as style from '../css/404.module.css';
 
 export default function NotFound() {
   //TODO: добавить кнопку для перехода на главную страницу

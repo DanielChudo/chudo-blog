@@ -1,6 +1,6 @@
 import React from 'react';
-import '../styles/reset.css';
-import '../styles/global.css';
+import '../css/reset.css';
+import '../css/global.css';
 
 export default function Layout({ children }) {
   return (
