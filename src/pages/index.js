@@ -4,14 +4,12 @@ import { Layout, Post } from '../components';
 
 export default function Home({ data }) {
   const posts = data.allMdx.nodes;
+  const site = data.site;
+
   return (
     <Layout>
       {posts.map((post) => (
-        <Post
-          title={post.frontmatter.title}
-          body="Текст поста"
-          date={post.frontmatter.date}
-        />
+        <Post key={post.slug} data={{ ...post, site }} />
       ))}
     </Layout>
   );
@@ -19,12 +17,19 @@ export default function Home({ data }) {
 
 export const query = graphql`
   {
-    allMdx(sort: { order: DESC, fields: frontmatter___date }) {
+    site {
+      siteMetadata {
+        url
+      }
+    }
+    allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
       nodes {
         frontmatter {
-          date
           title
+          date
         }
+        body
+        slug
       }
     }
   }
