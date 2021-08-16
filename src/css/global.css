@@ -20,6 +20,15 @@ a,
 a:active,
 a:visited {
   color: var(--link);
+  /* text-decoration: none;
+  box-shadow: inset 0 -2px 0 var(--accent);
+  transition: all 0.3s;
+  overflow: hidden; */
+}
+
+a:hover {
+  color: white;
+  box-shadow: inset 0 -30px 0 var(--accent);
 }
 
 a:not([href]) {
@@ -36,6 +45,10 @@ body {
   background-color: var(--background);
 }
 
+#gatsby-focus-wrapper {
+  width: 70vw;
+}
+
 article {
   position: relative;
   overflow-wrap: anywhere;
@@ -48,7 +61,6 @@ article {
 
 article h3 {
   display: inline-block;
-  border-bottom: 3px dashed var(--accent);
 }
 
 .title-wrapper {
@@ -66,16 +78,19 @@ footer {
   margin-top: 1rem;
 }
 
-.previous-next-wrapper:empty {
-  display: none;
+.previous-next-wrapper {
+  display: flex;
+  justify-content: space-between;
 }
 
-.previous-next-wrapper > a:nth-child(2) {
-  float: right;
+.previous-next-wrapper > a {
+  font-weight: 600;
+  text-decoration-thickness: 2px;
 }
 
 .date {
   margin-top: 0.2rem;
+  margin-left: 2rem;
   font-size: 0.8rem;
   font-style: italic;
   float: right;
@@ -85,7 +100,7 @@ footer {
 .share-button {
   position: absolute;
   top: -1rem;
-  right: -64px;
+  right: -3.4rem;
   width: 42px;
   height: 42px;
   border-radius: 50%;

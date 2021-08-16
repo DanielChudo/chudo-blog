@@ -28,16 +28,16 @@ export default function Post({ data, pageContext }) {
         <span className="date">{frontmatter.date}</span>
       </div>
       <MDXRenderer>{body}</MDXRenderer>
-      <div className="previous-next-wrapper">
-        {previous && (
-          <Link to={`/${previous.frontmatter.slug}`}>
-            {previous.frontmatter.title}
+      {pageContext && (
+        <div className="previous-next-wrapper">
+          <Link to={`/${previous?.frontmatter.slug}`}>
+            {previous?.frontmatter.title}
           </Link>
-        )}
-        {next && (
-          <Link to={`/${next.frontmatter.slug}`}>{next.frontmatter.title}</Link>
-        )}
-      </div>
+          <Link to={`/${next?.frontmatter.slug}`}>
+            {next?.frontmatter.title}
+          </Link>
+        </div>
+      )}
       <button
         className={`share-button ${bounceAnimation ? 'bounceAnimation' : ''}`}
         onClick={onClickHandle}
