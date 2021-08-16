@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
-
 :root {
   --main: #2f2fa2;
   --accent: #f64c72;
@@ -72,6 +70,7 @@ footer {
 .date {
   margin-top: 0;
   font-size: 0.8rem;
+  font-style: italic;
   text-align: right;
   cursor: default;
 }
