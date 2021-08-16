@@ -22,7 +22,10 @@ export default function Post({ data, pageContext }) {
   const post = (
     <article>
       <div className="title-wrapper">
-        <Link to={!pageContext ? frontmatter.slug : undefined}>
+        <Link
+          to={!pageContext ? frontmatter.slug : undefined}
+          className="title"
+        >
           <h3>{frontmatter.title}</h3>
         </Link>
         <span className="date">{frontmatter.date}</span>
