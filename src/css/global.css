@@ -31,7 +31,7 @@ body {
   flex-direction: column;
   align-items: center;
   color: var(--main);
-  padding: 16px 0;
+  padding: 1rem 0;
   align-content: center;
   background-color: var(--background);
 }
@@ -40,44 +40,51 @@ article {
   position: relative;
   overflow-wrap: anywhere;
   background-color: white;
-  border-radius: 16px;
+  border-radius: 1rem;
   box-shadow: 10px 10px 30px #ccc;
-  padding: 16px;
-  margin-top: 16px;
+  padding: 1rem;
+  margin-top: 1rem;
 }
 
 article h3 {
   display: inline-block;
-  margin-top: 0;
   border-bottom: 3px dashed var(--accent);
 }
 
-article > a:first-child {
+.title-wrapper {
   margin-top: 0;
 }
 
 article > * {
   display: block;
-  margin-top: 16px;
+  margin-top: 1rem;
 }
 
 footer {
   align-self: flex-end;
   font-size: 1rem;
-  margin-top: 16px;
+  margin-top: 1rem;
+}
+
+.previous-next-wrapper:empty {
+  display: none;
+}
+
+.previous-next-wrapper > a:nth-child(2) {
+  float: right;
 }
 
 .date {
-  margin-top: 0;
+  margin-top: 0.2rem;
   font-size: 0.8rem;
   font-style: italic;
-  text-align: right;
+  float: right;
   cursor: default;
 }
 
 .share-button {
   position: absolute;
-  top: -16px;
+  top: -1rem;
   right: -64px;
   width: 42px;
   height: 42px;

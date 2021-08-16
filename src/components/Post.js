@@ -18,13 +18,29 @@ export default function Post({ data, pageContext }) {
     setBounceAnimation(true);
   };
 
+  const previous = pageContext?.previous;
+  const next = pageContext?.next;
   const post = (
     <article>
-      <Link to={!pageContext ? slug : undefined}>
-        <h3>{frontmatter.title}</h3>
-      </Link>
+      <div className="title-wrapper">
+        <Link to={!pageContext ? slug : undefined}>
+          <h3>{frontmatter.title}</h3>
+        </Link>
+        <span className="date">{frontmatter.date}</span>
+      </div>
       <MDXRenderer>{body}</MDXRenderer>
-      <span className="date">{frontmatter.date}</span>
+      <div className="previous-next-wrapper">
+        {previous && (
+          <Link to={previous.fields.slug.slice(0, -1)}>
+            {previous.frontmatter.title}
+          </Link>
+        )}
+        {next && (
+          <Link to={next.fields.slug.slice(0, -1)}>
+            {next.frontmatter.title}
+          </Link>
+        )}
+      </div>
       <button
         className={`share-button ${bounceAnimation ? 'bounceAnimation' : ''}`}
         onClick={onClickHandle}
