@@ -9,12 +9,11 @@ export default function Post({ data, pageContext }) {
   if (data.mdx) {
     data = data.mdx;
   }
-  const { frontmatter, body, slug } = data;
+  const { frontmatter, body } = data;
   const [bounceAnimation, setBounceAnimation] = useState(false);
 
   const onClickHandle = async () => {
-    //удаляем слэш в конце у slug для красоты ссылки
-    await navigator.clipboard.writeText(url + slug.slice(0, -1));
+    await navigator.clipboard.writeText(url + frontmatter.slug);
     setBounceAnimation(true);
   };
 
@@ -23,7 +22,7 @@ export default function Post({ data, pageContext }) {
   const post = (
     <article>
       <div className="title-wrapper">
-        <Link to={!pageContext ? slug : undefined}>
+        <Link to={!pageContext ? frontmatter.slug : undefined}>
           <h3>{frontmatter.title}</h3>
         </Link>
         <span className="date">{frontmatter.date}</span>
@@ -31,14 +30,12 @@ export default function Post({ data, pageContext }) {
       <MDXRenderer>{body}</MDXRenderer>
       <div className="previous-next-wrapper">
         {previous && (
-          <Link to={previous.fields.slug.slice(0, -1)}>
+          <Link to={`/${previous.frontmatter.slug}`}>
             {previous.frontmatter.title}
           </Link>
         )}
         {next && (
-          <Link to={next.fields.slug.slice(0, -1)}>
-            {next.frontmatter.title}
-          </Link>
+          <Link to={`/${next.frontmatter.slug}`}>{next.frontmatter.title}</Link>
         )}
       </div>
       <button
@@ -81,9 +78,9 @@ export const query = graphql`
       frontmatter {
         title
         date
+        slug
       }
       body
-      slug
     }
   }
 `;

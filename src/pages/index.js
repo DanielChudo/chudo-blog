@@ -9,7 +9,7 @@ export default function Home({ data }) {
   return (
     <Layout>
       {posts.map((post) => (
-        <Post key={post.slug} data={{ ...post, site }} />
+        <Post key={post.frontmatter.slug} data={{ ...post, site }} />
       ))}
     </Layout>
   );
@@ -27,9 +27,9 @@ export const query = graphql`
         frontmatter {
           title
           date
+          slug
         }
         body
-        slug
       }
     }
   }

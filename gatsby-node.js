@@ -15,6 +15,7 @@ exports.createPages = async ({ actions, graphql }) => {
           }
           frontmatter {
             title
+            slug
           }
         }
       }
@@ -32,7 +33,7 @@ exports.createPages = async ({ actions, graphql }) => {
     const previous = index === posts.length - 1 ? null : posts[index + 1];
     const next = index === 0 ? null : posts[index - 1];
     createPage({
-      path: post.fields.slug,
+      path: post.frontmatter.slug,
       component: blogPostTemplate,
       context: {
         slug: post.fields.slug,
@@ -45,10 +46,10 @@ exports.createPages = async ({ actions, graphql }) => {
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
-  if (node.internal.type === `Mdx`) {
+  if (node.internal.type === 'Mdx') {
     const value = createFilePath({ node, getNode });
     createNodeField({
-      name: `slug`,
+      name: 'slug',
       node,
       value,
     });
