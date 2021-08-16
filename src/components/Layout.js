@@ -1,6 +1,7 @@
 import React from 'react';
 import '../css/reset.css';
 import '../css/global.css';
+import '../css/linkAnimation.css';
 import { Link } from 'gatsby';
 
 export default function Layout({ children }) {

@@ -34,10 +34,12 @@ export default function Post({ data, pageContext }) {
       {pageContext && (
         <div className="previous-next-wrapper">
           <Link to={`/${previous?.frontmatter.slug}`}>
-            {previous?.frontmatter.title}
+            <span className="previous-link-text">
+              {previous?.frontmatter.title}
+            </span>
           </Link>
           <Link to={`/${next?.frontmatter.slug}`}>
-            {next?.frontmatter.title}
+            <span className="next-link-text">{next?.frontmatter.title}</span>
           </Link>
         </div>
       )}
