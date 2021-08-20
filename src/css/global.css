@@ -83,6 +83,7 @@ footer {
 }
 
 .date {
+  color: var(--main);
   margin-top: 0.2rem;
   margin-left: 1rem;
   font-size: 0.9rem;
