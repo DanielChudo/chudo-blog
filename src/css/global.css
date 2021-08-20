@@ -28,8 +28,7 @@ body {
 }
 
 #gatsby-focus-wrapper {
-  min-width: 720px;
-  max-width: 70vw;
+  width: 70vw;
 }
 
 article {
@@ -73,6 +72,7 @@ article > h3 {
 
 footer {
   align-self: flex-end;
+  color: var(--main);
   font-size: 1rem;
   margin-top: 1rem;
 }
