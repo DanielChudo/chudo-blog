@@ -60,6 +60,13 @@ article > * {
   margin-top: 1rem;
 }
 
+article p,
+article del {
+  color: black;
+  line-height: 1.7em;
+  font-size: 0.9rem;
+}
+
 article > h3 {
   display: inline-block;
 }
@@ -78,7 +85,7 @@ footer {
 .date {
   margin-top: 0.2rem;
   margin-left: 1rem;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-style: italic;
   overflow-wrap: break-word;
   cursor: default;
@@ -124,4 +131,18 @@ footer {
 
 .share-svg > g {
   fill: white;
+}
+
+blockquote {
+  position: relative;
+  border-top: solid 3px var(--main);
+  border-bottom: solid 3px var(--main);
+}
+
+blockquote > p {
+  text-align: center;
+  font-size: 1.2rem;
+  font-style: italic;
+  font-weight: 700;
+  margin: 1rem 0;
 }
