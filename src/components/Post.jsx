@@ -10,7 +10,9 @@ export default function Post({ location, data, pageContext }) {
   // если статья в отдельном окне открыта
   if (data.mdx) {
     data = data.mdx;
+    document.title = data.frontmatter.title;
   }
+
   const { frontmatter, body } = data;
   const [bounceAnimation, setBounceAnimation] = useState(false);
 

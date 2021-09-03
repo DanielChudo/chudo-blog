@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import * as style from '../css/404.module.css';
 
 export default function NotFound() {
+  useEffect(() => {
+    document.title = 'Страница не найдена';
+  }, []);
+
   // TODO: добавить кнопку для перехода на главную страницу
   return (
     <section className={style.section}>

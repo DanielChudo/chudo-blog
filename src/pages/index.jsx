@@ -1,11 +1,14 @@
 /* eslint-disable react/forbid-prop-types */
-import React from 'react';
+import React, { useEffect } from 'react';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import { Layout, Post } from '../components';
 
 export default function Home({ location, data }) {
   const posts = data.allMdx.nodes;
+  useEffect(() => {
+    document.title = 'Блог Чудновского';
+  }, []);
 
   return (
     <Layout>
