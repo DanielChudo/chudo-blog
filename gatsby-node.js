@@ -27,7 +27,7 @@ exports.createPages = async ({ actions, graphql }) => {
   }
 
   // create page for each mdx node
-  const blogPostTemplate = path.resolve('./src/components/Post.js');
+  const blogPostTemplate = path.resolve('./src/components/Post.jsx');
   const posts = result.data.allMdx.nodes;
   posts.forEach((post, index) => {
     const previous = index === posts.length - 1 ? null : posts[index + 1];

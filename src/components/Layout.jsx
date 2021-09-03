@@ -3,6 +3,7 @@ import '../css/reset.css';
 import '../css/global.css';
 import '../css/linkAnimation.css';
 import { Link } from 'gatsby';
+import PropTypes from 'prop-types';
 import { defineCustomElements as deckDeckGoHighlightElement } from '@deckdeckgo/highlight-code/dist/loader';
 
 deckDeckGoHighlightElement();
@@ -21,3 +22,7 @@ export default function Layout({ children }) {
     </>
   );
 }
+
+Layout.propTypes = {
+  children: PropTypes.node.isRequired,
+};

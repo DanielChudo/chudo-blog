@@ -2,7 +2,7 @@ import React from 'react';
 import * as style from '../css/404.module.css';
 
 export default function NotFound() {
-  //TODO: добавить кнопку для перехода на главную страницу
+  // TODO: добавить кнопку для перехода на главную страницу
   return (
     <section className={style.section}>
       <h1 className={style.h1}>404</h1>

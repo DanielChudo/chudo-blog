@@ -1,5 +1,7 @@
+/* eslint-disable react/forbid-prop-types */
 import React from 'react';
 import { graphql } from 'gatsby';
+import PropTypes from 'prop-types';
 import { Layout, Post } from '../components';
 
 export default function Home({ location, data }) {
@@ -28,3 +30,8 @@ export const query = graphql`
     }
   }
 `;
+
+Home.propTypes = {
+  location: PropTypes.object.isRequired,
+  data: PropTypes.object.isRequired,
+};

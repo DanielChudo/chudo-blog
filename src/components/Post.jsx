@@ -1,6 +1,9 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable react/forbid-prop-types */
 import React, { useState } from 'react';
 import { Link, graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
+import PropTypes from 'prop-types';
 import Layout from './Layout';
 
 export default function Post({ location, data, pageContext }) {
@@ -13,7 +16,7 @@ export default function Post({ location, data, pageContext }) {
 
   const onClickHandle = async () => {
     await navigator.clipboard.writeText(
-      location.origin + '/' + frontmatter.slug
+      `${location.origin}/${frontmatter.slug}`
     );
     setBounceAnimation(true);
   };
@@ -23,10 +26,7 @@ export default function Post({ location, data, pageContext }) {
   const post = (
     <article>
       <div className="title-wrapper">
-        <Link
-          to={!pageContext ? frontmatter.slug : undefined}
-          className="title"
-        >
+        <Link to={!pageContext ? frontmatter.slug : null} className="title">
           <h3>{frontmatter.title}</h3>
         </Link>
         <span className="date">{frontmatter.date}</span>
@@ -48,6 +48,7 @@ export default function Post({ location, data, pageContext }) {
         className={`share-button ${bounceAnimation ? 'bounceAnimation' : ''}`}
         onClick={onClickHandle}
         onAnimationEnd={() => setBounceAnimation(false)}
+        type="button"
       >
         <svg
           className="share-svg"
@@ -85,3 +86,9 @@ export const query = graphql`
     }
   }
 `;
+
+Post.propTypes = {
+  location: PropTypes.object.isRequired,
+  data: PropTypes.object.isRequired,
+  pageContext: PropTypes.object,
+};
