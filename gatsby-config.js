@@ -29,6 +29,5 @@ module.exports = {
   ],
   siteMetadata: {
     title: 'Блог Чудновского',
-    url: 'http://localhost:8000/',
   },
 };

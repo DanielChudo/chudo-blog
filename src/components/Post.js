@@ -3,8 +3,7 @@ import { Link, graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import Layout from './Layout';
 
-export default function Post({ data, pageContext }) {
-  const url = data.site.siteMetadata.url;
+export default function Post({ location, data, pageContext }) {
   // если статья в отдельном окне открыта
   if (data.mdx) {
     data = data.mdx;
@@ -13,7 +12,9 @@ export default function Post({ data, pageContext }) {
   const [bounceAnimation, setBounceAnimation] = useState(false);
 
   const onClickHandle = async () => {
-    await navigator.clipboard.writeText(url + frontmatter.slug);
+    await navigator.clipboard.writeText(
+      location.origin + '/' + frontmatter.slug
+    );
     setBounceAnimation(true);
   };
 
@@ -74,11 +75,6 @@ export default function Post({ data, pageContext }) {
 
 export const query = graphql`
   query PostsBySlug($slug: String!) {
-    site {
-      siteMetadata {
-        url
-      }
-    }
     mdx(fields: { slug: { eq: $slug } }) {
       frontmatter {
         title
