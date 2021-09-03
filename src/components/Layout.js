@@ -3,6 +3,9 @@ import '../css/reset.css';
 import '../css/global.css';
 import '../css/linkAnimation.css';
 import { Link } from 'gatsby';
+import { defineCustomElements as deckDeckGoHighlightElement } from '@deckdeckgo/highlight-code/dist/loader';
+
+deckDeckGoHighlightElement();
 
 export default function Layout({ children }) {
   return (
