@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/forbid-prop-types */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import PropTypes from 'prop-types';
@@ -8,9 +8,14 @@ import Layout from './Layout';
 
 export default function Post({ location, data, pageContext }) {
   // если статья в отдельном окне открыта
+  useEffect(() => {
+    if (data.mdx) {
+      document.title = data.mdx.frontmatter.title;
+    }
+  }, []);
+
   if (data.mdx) {
     data = data.mdx;
-    document.title = data.frontmatter.title;
   }
 
   const { frontmatter, body } = data;
