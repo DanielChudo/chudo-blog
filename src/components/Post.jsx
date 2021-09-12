@@ -9,9 +9,7 @@ import Layout from './Layout';
 export default function Post({ location, data, pageContext }) {
   // если статья в отдельном окне открыта
   useEffect(() => {
-    if (data.mdx) {
-      document.title = data.mdx.frontmatter.title;
-    }
+    document.title = data?.frontmatter.title;
   }, []);
 
   if (data.mdx) {
